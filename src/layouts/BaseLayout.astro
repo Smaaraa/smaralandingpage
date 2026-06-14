@@ -55,6 +55,40 @@ const {
     <Footer />
   </body>
 </html>
+
+<script>
+  function setupReveal() {
+    const items = Array.from(
+      document.querySelectorAll<HTMLElement>(".reveal"),
+    );
+    if (!items.length) return;
+
+    // No IntersectionObserver / reduced motion: just show everything.
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (reduce || !("IntersectionObserver" in window)) {
+      items.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
+    );
+
+    items.forEach((el) => observer.observe(el));
+  }
+
+  document.addEventListener("astro:page-load", setupReveal);
+</script>
 <style is:global>
   .astro-code,
   .astro-code span {

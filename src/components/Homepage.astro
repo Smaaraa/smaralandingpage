@@ -52,7 +52,7 @@ const steps = [
       id="fragrance"
       class="grid gap-10 lg:gap-16 md:grid-cols-2 items-center py-10 md:py-16"
     >
-      <div class="order-2 md:order-1">
+      <div class="order-2 md:order-1 reveal">
         <p class="eyebrow text-sage-deep dark:text-sage mb-5">
           Drawn from the earth
         </p>
@@ -69,7 +69,7 @@ const steps = [
         <div class="flex flex-wrap gap-4 items-center">
           <a
             href="#ritual"
-            class="inline-block bg-olive dark:bg-sage text-parchment dark:text-forest px-7 py-3 rounded-full font-overpass-mono text-sm uppercase tracking-widest transition-opacity hover:opacity-80"
+            class="inline-block bg-olive dark:bg-sage text-parchment dark:text-forest px-7 py-3 rounded-full font-overpass-mono text-sm uppercase tracking-widest transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 hover:shadow-lg"
           >
             Discover the scent
           </a>
@@ -81,14 +81,14 @@ const steps = [
           </a>
         </div>
       </div>
-      <div class="order-1 md:order-2 relative">
+      <div class="order-1 md:order-2 relative reveal">
         <div
           class="absolute inset-0 -m-6 rounded-[40%_60%_55%_45%/55%_45%_60%_40%] bg-sage/20 dark:bg-sage/10 blur-2xl"
           aria-hidden="true"
         >
         </div>
         <Image
-          class="relative w-full sm:h-[350px] lg:h-[600px] object-contain object-center"
+          class="float relative w-full sm:h-[350px] lg:h-[600px] object-contain object-center"
           src={anim_test}
           alt="The Smara perfume bottle, hand-poured from organic botanicals"
         />
@@ -97,16 +97,16 @@ const steps = [
 
     <!-- Philosophy -->
     <section class="py-14 md:py-20 border-t border-bark/10 dark:border-sage/15">
-      <p class="eyebrow text-sage-deep dark:text-sage mb-4">Our philosophy</p>
+      <p class="eyebrow text-sage-deep dark:text-sage mb-4 reveal">Our philosophy</p>
       <h2
-        class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment"
+        class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment reveal"
       >
         Made by hand. Grown, not engineered.
       </h2>
       <div class="grid gap-8 md:gap-12 md:grid-cols-3">
         {
-          pillars.map((p) => (
-            <div>
+          pillars.map((p, i) => (
+            <div class="reveal" style={`--reveal-delay: ${i * 120}ms`}>
               <h3 class="font-serif-display text-2xl mb-3 text-terracotta">
                 {p.title}
               </h3>
@@ -124,16 +124,16 @@ const steps = [
       id="ingredients"
       class="py-14 md:py-20 border-t border-bark/10 dark:border-sage/15"
     >
-      <p class="eyebrow text-sage-deep dark:text-sage mb-4">The botanicals</p>
+      <p class="eyebrow text-sage-deep dark:text-sage mb-4 reveal">The botanicals</p>
       <h2
-        class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment"
+        class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment reveal"
       >
         Twelve raw ingredients. Nothing hidden.
       </h2>
       <div class="grid gap-px bg-bark/10 dark:bg-sage/15 md:grid-cols-3 rounded-2xl overflow-hidden">
         {
-          notes.map((n) => (
-            <div class="bg-parchment dark:bg-forest p-8">
+          notes.map((n, i) => (
+            <div class="bg-parchment dark:bg-forest p-8 reveal" style={`--reveal-delay: ${i * 120}ms`}>
               <div class="flex items-baseline justify-between mb-5">
                 <span class="font-serif-display text-2xl text-olive dark:text-sage">
                   {n.stage}
@@ -160,16 +160,16 @@ const steps = [
       id="craft"
       class="py-14 md:py-20 border-t border-bark/10 dark:border-sage/15"
     >
-      <p class="eyebrow text-sage-deep dark:text-sage mb-4">From flower to flacon</p>
+      <p class="eyebrow text-sage-deep dark:text-sage mb-4 reveal">From flower to flacon</p>
       <h2
-        class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment"
+        class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment reveal"
       >
         Four slow steps, the old way.
       </h2>
       <div class="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
         {
-          steps.map((s) => (
-            <div>
+          steps.map((s, i) => (
+            <div class="reveal" style={`--reveal-delay: ${i * 120}ms`}>
               <span class="font-overpass-mono text-sm text-terracotta">
                 {s.n}
               </span>
@@ -188,7 +188,7 @@ const steps = [
     <!-- Closing CTA -->
     <section
       id="ritual"
-      class="py-16 md:py-24 mt-6 rounded-3xl bg-olive dark:bg-[#2a2f25] text-parchment text-center px-6"
+      class="py-16 md:py-24 mt-6 rounded-3xl bg-olive dark:bg-[#2a2f25] text-parchment text-center px-6 reveal"
     >
       <p class="eyebrow text-sage mb-4">Join the harvest</p>
       <h2 class="font-serif-display text-3xl md:text-5xl max-w-2xl mx-auto mb-5">
@@ -209,7 +209,7 @@ const steps = [
         />
         <button
           type="submit"
-          class="rounded-full px-7 py-3 bg-terracotta text-parchment font-overpass-mono text-sm uppercase tracking-widest transition-opacity hover:opacity-85"
+          class="rounded-full px-7 py-3 bg-terracotta text-parchment font-overpass-mono text-sm uppercase tracking-widest transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 hover:shadow-lg"
         >
           Notify me
         </button>
