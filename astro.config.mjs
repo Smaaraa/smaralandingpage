@@ -1,13 +1,13 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
-import tailwind from "@astrojs/tailwind";
 import markdoc from "@astrojs/markdoc";
 import remarkGfm from "remark-gfm";
 import icon from "astro-icon";
 import { remarkReadingTime } from "./src/scripts/remark-reading-time.mjs";
 import undiciRetry from "./src/scripts/undici-retry.js";
 import react from "@astrojs/react";
+import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://smara.com/',
@@ -37,11 +37,13 @@ export default defineConfig({
       },
       gfm: false,
     }),
-    tailwind(),
     markdoc(),
     undiciRetry(),
     react(),
   ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   markdown: {
     syntaxHighlight: "shiki",
     shikiConfig: {
@@ -66,12 +68,5 @@ export default defineConfig({
   },
   build: {
     concurrency: 4,
-    measuring: {
-      entryBuilding: true,
-      pageGeneration: true,
-      bundling: true,
-      rendering: true,
-      assetProcessing: true,
-    },
   },
 });

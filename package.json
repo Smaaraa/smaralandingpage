@@ -1,7 +1,8 @@
 {
-  "name": "Revistav4",
+  "name": "smara-landing-page",
   "type": "module",
-  "version": "4.8.5",
+  "version": "1.0.0",
+  "description": "Landing page for Smara — small-batch, all-natural handcrafted perfume.",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -11,20 +12,19 @@
     "postbuild": "pagefind --site dist"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/markdoc": "^0.11.5",
-    "@astrojs/mdx": "^3.1.8",
-    "@astrojs/react": "^3.6.2",
-    "@astrojs/rss": "^4.0.9",
-    "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/tailwind": "^5.1.2",
+    "@astrojs/markdoc": "^1.0.6",
+    "@astrojs/mdx": "^6.0.3",
+    "@astrojs/react": "^5.0.7",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.3",
     "@fontsource-variable/inconsolata": "^5.1.0",
     "@fontsource-variable/overpass-mono": "^5.1.0",
     "@iconify-json/mdi": "^1.2.1",
+    "@tailwindcss/vite": "^4.3.1",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
-    "astro": "^4.16.6",
-    "astro-icon": "^1.1.1",
+    "astro": "^6.4.6",
+    "astro-icon": "^1.1.5",
     "caniuse-lite": "^1.0.30001669",
     "dayjs": "^1.11.13",
     "framer-motion": "^11.11.9",
@@ -35,15 +35,20 @@
     "react-dom": "^18.3.1",
     "reading-time": "^1.5.0",
     "sanitize-html": "^2.13.1",
-    "tailwindcss": "^3.4.14",
+    "tailwindcss": "^4.3.1",
     "typescript": "^5.6.3",
-    "undici": "^6.20.1"
+    "undici": "^8.4.1"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.9",
     "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/typography": "^0.5.15",
+    "@tailwindcss/typography": "^0.5.20",
     "pagefind": "^1.1.1",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1"
+  },
+  "overrides": {
+    "vite": "^7.3.2",
+    "esbuild": "^0.28.1"
   }
 }
