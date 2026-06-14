@@ -1,22 +1,221 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import anim_test from "../images/anim_test.gif";
-const { title, images, alt, urls, width, height } = Astro.props;
+const { title } = Astro.props;
+
+const pillars = [
+  {
+    title: "100% Botanical",
+    body: "Every drop is built from organic essential oils, resins, and absolutes — never synthetic musks or fixatives.",
+  },
+  {
+    title: "Small-Batch",
+    body: "Blended by hand in batches of forty, then rested for six weeks so the notes can settle and marry.",
+  },
+  {
+    title: "Kind by Nature",
+    body: "Vegan, cruelty-free, and bottled in refillable amber glass. Good for your skin, gentle on the earth.",
+  },
+];
+
+const notes = [
+  {
+    stage: "Top",
+    label: "First Breath",
+    items: ["Cold-pressed Bergamot", "Wild Neroli", "Green Cardamom"],
+  },
+  {
+    stage: "Heart",
+    label: "The Bloom",
+    items: ["Damask Rose Otto", "Night Jasmine", "Orris Root"],
+  },
+  {
+    stage: "Base",
+    label: "The Earth",
+    items: ["Mysore Sandalwood", "Smoked Vetiver", "Wild Oakmoss"],
+  },
+];
+
+const steps = [
+  { n: "01", title: "Harvest", body: "Flowers and roots gathered at dawn from organic, biodynamic growers." },
+  { n: "02", title: "Distill", body: "Slow steam-distilled in copper, the old way, to keep the scent alive." },
+  { n: "03", title: "Blend", body: "Layered by the nose alone — no formula software, only patience." },
+  { n: "04", title: "Rest", body: "Aged six weeks in darkness before it ever meets your skin." },
+];
 ---
 
 <BaseLayout title={title} is404Page={false}>
-  <div
-    id="homepage"
-    class="flex justify-center items-center"
-    data-images={images}
-    data-alt={alt}
-    data-urls={urls}
-    data-width={JSON.stringify(width)}
-    data-height={JSON.stringify(height)}
-  >
-    <Image class="sm:h-[350px] lg:h-[700px] xl:h-[1000px] object-contain w-full object-center"
-    src={anim_test} alt="Placeholder for the perfume ad" />
+  <main class="font-serif-body text-bark dark:text-[#e9e4d8]">
+    <!-- Hero -->
+    <section
+      id="fragrance"
+      class="grid gap-10 lg:gap-16 md:grid-cols-2 items-center py-10 md:py-16"
+    >
+      <div class="order-2 md:order-1">
+        <p class="eyebrow text-sage-deep dark:text-sage mb-5">
+          Drawn from the earth
+        </p>
+        <h1
+          class="font-serif-display leading-[0.95] text-5xl sm:text-6xl md:text-7xl mb-6 text-olive dark:text-parchment"
+        >
+          A perfume that<br /><em class="not-italic text-terracotta">remembers</em> the soil it grew from.
+        </h1>
+        <p class="text-lg md:text-xl leading-relaxed max-w-md text-bark/80 dark:text-[#e9e4d8]/80 mb-8">
+          Smara is an all-natural eau de parfum, handcrafted in small batches
+          from organic botanicals. No synthetics, no shortcuts — only the raw,
+          living scent of the wild.
+        </p>
+        <div class="flex flex-wrap gap-4 items-center">
+          <a
+            href="#ritual"
+            class="inline-block bg-olive dark:bg-sage text-parchment dark:text-forest px-7 py-3 rounded-full font-overpass-mono text-sm uppercase tracking-widest transition-opacity hover:opacity-80"
+          >
+            Discover the scent
+          </a>
+          <a
+            href="#craft"
+            class="inline-block border border-olive/40 dark:border-sage/40 px-7 py-3 rounded-full font-overpass-mono text-sm uppercase tracking-widest text-olive dark:text-sage transition-colors hover:bg-olive/5 dark:hover:bg-sage/10"
+          >
+            Our craft
+          </a>
+        </div>
+      </div>
+      <div class="order-1 md:order-2 relative">
+        <div
+          class="absolute inset-0 -m-6 rounded-[40%_60%_55%_45%/55%_45%_60%_40%] bg-sage/20 dark:bg-sage/10 blur-2xl"
+          aria-hidden="true"
+        >
+        </div>
+        <Image
+          class="relative w-full sm:h-[350px] lg:h-[600px] object-contain object-center"
+          src={anim_test}
+          alt="The Smara perfume bottle, hand-poured from organic botanicals"
+        />
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="py-14 md:py-20 border-t border-bark/10 dark:border-sage/15">
+      <p class="eyebrow text-sage-deep dark:text-sage mb-4">Our philosophy</p>
+      <h2
+        class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment"
+      >
+        Made by hand. Grown, not engineered.
+      </h2>
+      <div class="grid gap-8 md:gap-12 md:grid-cols-3">
+        {
+          pillars.map((p) => (
+            <div>
+              <h3 class="font-serif-display text-2xl mb-3 text-terracotta">
+                {p.title}
+              </h3>
+              <p class="leading-relaxed text-bark/75 dark:text-[#e9e4d8]/75">
+                {p.body}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Ingredients / Notes pyramid -->
+    <section
+      id="ingredients"
+      class="py-14 md:py-20 border-t border-bark/10 dark:border-sage/15"
+    >
+      <p class="eyebrow text-sage-deep dark:text-sage mb-4">The botanicals</p>
+      <h2
+        class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment"
+      >
+        Twelve raw ingredients. Nothing hidden.
+      </h2>
+      <div class="grid gap-px bg-bark/10 dark:bg-sage/15 md:grid-cols-3 rounded-2xl overflow-hidden">
+        {
+          notes.map((n) => (
+            <div class="bg-parchment dark:bg-forest p-8">
+              <div class="flex items-baseline justify-between mb-5">
+                <span class="font-serif-display text-2xl text-olive dark:text-sage">
+                  {n.stage}
+                </span>
+                <span class="eyebrow text-sage-deep dark:text-sage">
+                  {n.label}
+                </span>
+              </div>
+              <ul class="space-y-2">
+                {n.items.map((item) => (
+                  <li class="text-lg text-bark/80 dark:text-[#e9e4d8]/80 border-b border-bark/5 dark:border-sage/10 pb-2">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Craft process -->
+    <section
+      id="craft"
+      class="py-14 md:py-20 border-t border-bark/10 dark:border-sage/15"
+    >
+      <p class="eyebrow text-sage-deep dark:text-sage mb-4">From flower to flacon</p>
+      <h2
+        class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment"
+      >
+        Four slow steps, the old way.
+      </h2>
+      <div class="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
+        {
+          steps.map((s) => (
+            <div>
+              <span class="font-overpass-mono text-sm text-terracotta">
+                {s.n}
+              </span>
+              <h3 class="font-serif-display text-2xl mt-2 mb-3 text-olive dark:text-parchment">
+                {s.title}
+              </h3>
+              <p class="leading-relaxed text-bark/75 dark:text-[#e9e4d8]/75">
+                {s.body}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section
+      id="ritual"
+      class="py-16 md:py-24 mt-6 rounded-3xl bg-olive dark:bg-[#2a2f25] text-parchment text-center px-6"
+    >
+      <p class="eyebrow text-sage mb-4">Join the harvest</p>
+      <h2 class="font-serif-display text-3xl md:text-5xl max-w-2xl mx-auto mb-5">
+        Be first to know when the next batch is poured.
+      </h2>
+      <p class="max-w-md mx-auto text-parchment/80 mb-8 leading-relaxed">
+        We make Smara only when the botanicals are at their finest. Leave your
+        email and we'll write when a new harvest is ready.
+      </p>
+      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto justify-center">
+        <label class="sr-only" for="email">Email address</label>
+        <input
+          id="email"
+          type="email"
+          required
+          placeholder="you@garden.com"
+          class="flex-1 rounded-full px-5 py-3 bg-parchment/95 text-bark font-overpass-mono text-sm outline-none placeholder:text-bark/40"
+        />
+        <button
+          type="submit"
+          class="rounded-full px-7 py-3 bg-terracotta text-parchment font-overpass-mono text-sm uppercase tracking-widest transition-opacity hover:opacity-85"
+        >
+          Notify me
+        </button>
+      </form>
+    </section>
+
     <slot />
-  </div>
+  </main>
 </BaseLayout>

@@ -3,25 +3,41 @@
 @tailwind utilities;
 
 html {
-  background-color: #f2f2f2;
-  font-family: sans-serif;
+  background-color: #f3efe6;
+  color: #2e2a22;
+  font-family: "EB Garamond", Georgia, serif;
   height: 100%;
 }
 
 html.dark {
-  background-color: rgb(34, 33, 37);
-  color: #fff;
+  background-color: #1f231d;
+  color: #e9e4d8;
 }
 
 .dark .nav-links a {
-  color: #fff;
+  color: #e9e4d8;
 }
 
 * {
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+}
+
 h1 {
   margin: 1rem 0;
   font-size: 2.5rem;
+}
+
+/* small uppercase apothecary-style labels */
+.eyebrow {
+  font-family: "Overpass Mono Variable", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
 }

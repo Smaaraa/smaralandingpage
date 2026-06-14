@@ -8,10 +8,15 @@ const { is404Page = false } = Astro.props;
   <nav class="flex items-center justify-between w-full h-[30px]">
     {
       !is404Page && (
-        <div class="flex items-center h-[30px]">
+        <div class="flex items-baseline h-[30px] gap-2">
           <a href="/" class="block">
-            <span>Smara</span>
+            <span class="font-serif-display text-2xl tracking-wide text-olive dark:text-sage">
+              Smara
+            </span>
           </a>
+          <span class="eyebrow hidden sm:inline text-sage-deep dark:text-sage">
+            Organic Perfumery
+          </span>
         </div>
       )
     }

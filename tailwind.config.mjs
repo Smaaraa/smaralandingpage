@@ -6,6 +6,18 @@ export default {
       fontFamily: {
         "overpass-mono": ['"Overpass Mono Variable"', "sans-serif"],
         "inconsolata": ['"Inconsolata Variable"', "sans-serif"],
+        "serif-display": ['"Cormorant Garamond"', "Georgia", "serif"],
+        "serif-body": ['"EB Garamond"', "Georgia", "serif"],
+      },
+      colors: {
+        parchment: "#f3efe6",
+        cream: "#e8e1d3",
+        sage: "#8a9a7b",
+        "sage-deep": "#5f6f4e",
+        olive: "#4a5240",
+        bark: "#2e2a22",
+        forest: "#1f231d",
+        terracotta: "#b5734f",
       },
       objectPosition: {
         "top-33": "center top 33.33%",
