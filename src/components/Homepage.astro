@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BotanicalSprig from "./BotanicalSprig.astro";
 import anim_test from "../images/anim_test.gif";
 const { title } = Astro.props;
 
@@ -50,7 +51,7 @@ const steps = [
     <!-- Hero -->
     <section
       id="fragrance"
-      class="grid gap-10 lg:gap-16 md:grid-cols-2 items-center py-10 md:py-16"
+      class="relative grid gap-10 lg:gap-16 md:grid-cols-2 items-center py-10 md:py-16"
     >
       <div class="order-2 md:order-1 reveal">
         <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-5">
@@ -87,16 +88,34 @@ const steps = [
           aria-hidden="true"
         >
         </div>
+        <BotanicalSprig
+          class="pointer-events-none absolute -left-6 -top-8 h-44 w-auto text-sage-deep/20 dark:text-sage/20 -rotate-[18deg]"
+        />
+        <BotanicalSprig
+          class="pointer-events-none absolute -right-4 bottom-2 h-36 w-auto text-sage-deep/15 dark:text-sage/15 rotate-[200deg]"
+        />
         <Image
           class="float relative w-full sm:h-[350px] lg:h-[600px] object-contain object-center"
           src={anim_test}
           alt="The Smara perfume bottle, hand-poured from organic botanicals"
         />
       </div>
+
+      <!-- scroll cue -->
+      <div
+        class="pointer-events-none absolute inset-x-0 -bottom-2 hidden md:flex flex-col items-center gap-2 text-sage-deep dark:text-sage"
+        aria-hidden="true"
+      >
+        <span class="eyebrow text-[0.6rem] opacity-70">Scroll</span>
+        <span class="scroll-cue-track"><span class="scroll-cue-dot"></span></span>
+      </div>
     </section>
 
     <!-- Philosophy -->
-    <section class="my-6 px-6 md:px-12 py-14 md:py-20 rounded-3xl bg-cream/50 dark:bg-bark/30">
+    <section class="relative isolate overflow-hidden my-6 px-6 md:px-12 py-14 md:py-20 rounded-3xl bg-cream/50 dark:bg-bark/30">
+      <BotanicalSprig
+        class="pointer-events-none absolute -z-10 -right-10 -top-12 h-64 w-auto text-sage-deep/[7%] dark:text-sage/[7%] rotate-[24deg]"
+      />
       <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-4 reveal">Our philosophy</p>
       <h2
         class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment reveal"
@@ -161,8 +180,11 @@ const steps = [
     <!-- Craft process -->
     <section
       id="craft"
-      class="my-6 px-6 md:px-12 py-14 md:py-20 rounded-3xl bg-cream/50 dark:bg-bark/30"
+      class="relative isolate overflow-hidden my-6 px-6 md:px-12 py-14 md:py-20 rounded-3xl bg-cream/50 dark:bg-bark/30"
     >
+      <BotanicalSprig
+        class="pointer-events-none absolute -z-10 -left-12 -bottom-16 h-72 w-auto text-sage-deep/[7%] dark:text-sage/[7%] -rotate-[200deg]"
+      />
       <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-4 reveal">From flower to flacon</p>
       <h2
         class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment reveal"
@@ -194,8 +216,14 @@ const steps = [
     <!-- Closing CTA -->
     <section
       id="ritual"
-      class="py-16 md:py-24 mt-6 rounded-3xl bg-olive dark:bg-[#2a2f25] text-parchment text-center px-6 reveal"
+      class="relative isolate overflow-hidden py-16 md:py-24 mt-6 rounded-3xl bg-olive dark:bg-[#2a2f25] text-parchment text-center px-6 reveal"
     >
+      <BotanicalSprig
+        class="pointer-events-none absolute -z-10 -left-8 -top-10 h-56 w-auto text-parchment/[6%] rotate-[28deg]"
+      />
+      <BotanicalSprig
+        class="pointer-events-none absolute -z-10 -right-8 -bottom-12 h-56 w-auto text-parchment/[6%] -rotate-[200deg]"
+      />
       <p class="eyebrow eyebrow-rule text-sage mb-4 justify-center">Join the harvest</p>
       <h2 class="font-serif-display text-3xl md:text-5xl max-w-2xl mx-auto mb-5">
         Be first to know when the next batch is poured.

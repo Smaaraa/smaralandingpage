@@ -1,0 +1,28 @@
+---
+// Decorative line-art botanical sprig used as a faint watermark motif.
+// Pass `class` to position/size/colour and set opacity at the call site.
+const { class: className = "" } = Astro.props;
+---
+
+<svg
+  class={className}
+  viewBox="0 0 100 220"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.4"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  <!-- stem -->
+  <path d="M50 215 C50 170 50 120 50 8" />
+  <!-- top bud -->
+  <path d="M50 8 C44 16 44 24 50 30 C56 24 56 16 50 8 Z" />
+  <!-- leaf pairs down the stem -->
+  <path d="M50 60 C36 54 26 42 22 28 C38 32 50 44 50 60 Z" />
+  <path d="M50 60 C64 54 74 42 78 28 C62 32 50 44 50 60 Z" />
+  <path d="M50 110 C36 104 26 92 22 78 C38 82 50 94 50 110 Z" />
+  <path d="M50 110 C64 104 74 92 78 78 C62 82 50 94 50 110 Z" />
+  <path d="M50 160 C36 154 26 142 22 128 C38 132 50 146 50 160 Z" />
+  <path d="M50 160 C64 154 74 142 78 128 C62 132 50 146 50 160 Z" />
+</svg>
