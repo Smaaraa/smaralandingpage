@@ -1,9 +1,9 @@
 <div id="nav-links" class="nav-links collapsed font-overpass-mono capitalize">
-  <a class="fade-effect" href="/">Home</a>
-  <a class="fade-effect" href="#fragrance">The Fragrance</a>
-  <a class="fade-effect" href="#ingredients">Ingredients</a>
-  <a class="fade-effect" href="#craft">Our Craft</a>
-  <a class="fade-effect" href="#ritual">The Ritual</a>
+  <a class="fade-effect" href="/"><span class="link-underline">Home</span></a>
+  <a class="fade-effect" href="#fragrance"><span class="link-underline">The Fragrance</span></a>
+  <a class="fade-effect" href="#ingredients"><span class="link-underline">Ingredients</span></a>
+  <a class="fade-effect" href="#craft"><span class="link-underline">Our Craft</span></a>
+  <a class="fade-effect" href="#ritual"><span class="link-underline">The Ritual</span></a>
   <slot />
 </div>
 <style>
@@ -58,10 +58,6 @@
   .fade-effect {
     transition: opacity 0.5s ease-in-out;
     opacity: 1;
-  }
-
-  .fade-effect:hover {
-    opacity: 0.5;
   }
   .nav-search {
     display: flex;
