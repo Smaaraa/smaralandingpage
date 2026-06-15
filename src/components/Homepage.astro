@@ -53,7 +53,7 @@ const steps = [
       class="grid gap-10 lg:gap-16 md:grid-cols-2 items-center py-10 md:py-16"
     >
       <div class="order-2 md:order-1 reveal">
-        <p class="eyebrow text-sage-deep dark:text-sage mb-5">
+        <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-5">
           Drawn from the earth
         </p>
         <h1
@@ -69,13 +69,13 @@ const steps = [
         <div class="flex flex-wrap gap-4 items-center">
           <a
             href="#ritual"
-            class="inline-block bg-olive dark:bg-sage text-parchment dark:text-forest px-7 py-3 rounded-full font-overpass-mono text-sm uppercase tracking-widest transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 hover:shadow-lg"
+            class="focus-ring inline-block bg-olive dark:bg-sage text-parchment dark:text-forest px-7 py-3 rounded-full font-overpass-mono text-sm uppercase tracking-widest transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-10px_rgba(74,82,64,0.55)] dark:hover:shadow-[0_12px_28px_-10px_rgba(138,154,123,0.45)]"
           >
             Discover the scent
           </a>
           <a
             href="#craft"
-            class="inline-block border border-olive/40 dark:border-sage/40 px-7 py-3 rounded-full font-overpass-mono text-sm uppercase tracking-widest text-olive dark:text-sage transition-colors hover:bg-olive/5 dark:hover:bg-sage/10"
+            class="focus-ring inline-block border border-olive/40 dark:border-sage/40 px-7 py-3 rounded-full font-overpass-mono text-sm uppercase tracking-widest text-olive dark:text-sage transition-colors hover:bg-olive/5 dark:hover:bg-sage/10"
           >
             Our craft
           </a>
@@ -96,8 +96,8 @@ const steps = [
     </section>
 
     <!-- Philosophy -->
-    <section class="py-14 md:py-20 border-t border-bark/10 dark:border-sage/15">
-      <p class="eyebrow text-sage-deep dark:text-sage mb-4 reveal">Our philosophy</p>
+    <section class="my-6 px-6 md:px-12 py-14 md:py-20 rounded-3xl bg-cream/50 dark:bg-bark/30">
+      <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-4 reveal">Our philosophy</p>
       <h2
         class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment reveal"
       >
@@ -106,7 +106,10 @@ const steps = [
       <div class="grid gap-8 md:gap-12 md:grid-cols-3">
         {
           pillars.map((p, i) => (
-            <div class="reveal" style={`--reveal-delay: ${i * 120}ms`}>
+            <div
+              class="reveal group rounded-2xl p-5 -m-5 transition-all duration-300 hover:-translate-y-1 hover:bg-parchment/60 dark:hover:bg-forest/40"
+              style={`--reveal-delay: ${i * 120}ms`}
+            >
               <h3 class="font-serif-display text-2xl mb-3 text-terracotta">
                 {p.title}
               </h3>
@@ -124,7 +127,7 @@ const steps = [
       id="ingredients"
       class="py-14 md:py-20 border-t border-bark/10 dark:border-sage/15"
     >
-      <p class="eyebrow text-sage-deep dark:text-sage mb-4 reveal">The botanicals</p>
+      <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-4 reveal">The botanicals</p>
       <h2
         class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment reveal"
       >
@@ -144,7 +147,7 @@ const steps = [
               </div>
               <ul class="space-y-2">
                 {n.items.map((item) => (
-                  <li class="text-lg text-bark/80 dark:text-[#e9e4d8]/80 border-b border-bark/5 dark:border-sage/10 pb-2">
+                  <li class="text-lg text-bark/80 dark:text-[#e9e4d8]/80 border-b border-bark/5 dark:border-sage/10 pb-2 transition-colors duration-200 hover:text-terracotta dark:hover:text-terracotta hover:border-terracotta/30">
                     {item}
                   </li>
                 ))}
@@ -158,9 +161,9 @@ const steps = [
     <!-- Craft process -->
     <section
       id="craft"
-      class="py-14 md:py-20 border-t border-bark/10 dark:border-sage/15"
+      class="my-6 px-6 md:px-12 py-14 md:py-20 rounded-3xl bg-cream/50 dark:bg-bark/30"
     >
-      <p class="eyebrow text-sage-deep dark:text-sage mb-4 reveal">From flower to flacon</p>
+      <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-4 reveal">From flower to flacon</p>
       <h2
         class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment reveal"
       >
@@ -169,8 +172,11 @@ const steps = [
       <div class="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
         {
           steps.map((s, i) => (
-            <div class="reveal" style={`--reveal-delay: ${i * 120}ms`}>
-              <span class="font-overpass-mono text-sm text-terracotta">
+            <div
+              class="reveal group rounded-2xl p-5 -m-5 transition-all duration-300 hover:-translate-y-1 hover:bg-parchment/60 dark:hover:bg-forest/40"
+              style={`--reveal-delay: ${i * 120}ms`}
+            >
+              <span class="font-overpass-mono text-sm text-terracotta transition-opacity group-hover:opacity-100">
                 {s.n}
               </span>
               <h3 class="font-serif-display text-2xl mt-2 mb-3 text-olive dark:text-parchment">
@@ -190,7 +196,7 @@ const steps = [
       id="ritual"
       class="py-16 md:py-24 mt-6 rounded-3xl bg-olive dark:bg-[#2a2f25] text-parchment text-center px-6 reveal"
     >
-      <p class="eyebrow text-sage mb-4">Join the harvest</p>
+      <p class="eyebrow eyebrow-rule text-sage mb-4 justify-center">Join the harvest</p>
       <h2 class="font-serif-display text-3xl md:text-5xl max-w-2xl mx-auto mb-5">
         Be first to know when the next batch is poured.
       </h2>
@@ -205,11 +211,11 @@ const steps = [
           type="email"
           required
           placeholder="you@garden.com"
-          class="flex-1 rounded-full px-5 py-3 bg-parchment/95 text-bark font-overpass-mono text-sm outline-none placeholder:text-bark/40"
+          class="focus-ring flex-1 rounded-full px-5 py-3 bg-parchment/95 text-bark font-overpass-mono text-sm outline-none placeholder:text-bark/40"
         />
         <button
           type="submit"
-          class="rounded-full px-7 py-3 bg-terracotta text-parchment font-overpass-mono text-sm uppercase tracking-widest transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 hover:shadow-lg"
+          class="focus-ring rounded-full px-7 py-3 bg-terracotta text-parchment font-overpass-mono text-sm uppercase tracking-widest transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-10px_rgba(181,115,79,0.6)]"
         >
           Notify me
         </button>

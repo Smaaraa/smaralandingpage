@@ -70,6 +70,29 @@ h1 {
   font-size: 0.72rem;
 }
 
+/* apothecary-style label with a leading hairline rule */
+.eyebrow-rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.eyebrow-rule::before {
+  content: "";
+  width: 1.6rem;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.5;
+}
+
+/* warm, brand-tinted focus ring for interactive elements */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 2px;
+}
+.dark .focus-ring:focus-visible {
+  outline-color: var(--color-sage);
+}
+
 /* smooth anchor scrolling */
 @media (prefers-reduced-motion: no-preference) {
   html {
