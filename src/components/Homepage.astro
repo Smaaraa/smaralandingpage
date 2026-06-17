@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BotanicalSprig from "./BotanicalSprig.astro";
-import heroVideo from "../images/hero.mp4";
-import heroPoster from "../images/hero_still.webp";
+import heroVideo from "../images/smara_hero.mp4";
+import heroPoster from "../images/smara_hero_poster.webp";
 const { title } = Astro.props;
 
 const pillars = [
@@ -51,72 +51,63 @@ const steps = [
     <!-- Hero -->
     <section
       id="fragrance"
-      class="section-screen relative grid content-center gap-10 lg:gap-16 md:grid-cols-2 items-center py-10 md:py-16"
+      class="section-screen full-bleed relative flex items-center justify-center overflow-hidden"
     >
-      <div class="order-2 md:order-1 reveal">
-        <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-5">
+      <!-- full-bleed video, edges feathered softly into the page -->
+      <video
+        class="absolute inset-0 h-full w-full object-cover object-center"
+        style="-webkit-mask-image: radial-gradient(ellipse 82% 88% at 50% 50%, #000 50%, rgba(0,0,0,0) 100%); mask-image: radial-gradient(ellipse 82% 88% at 50% 50%, #000 50%, rgba(0,0,0,0) 100%);"
+        autoplay
+        loop
+        muted
+        playsinline
+        poster={heroPoster.src}
+        aria-label="The Smara perfume bottle resting on a sea rock as waves break, hand-poured from organic botanicals"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+
+      <!-- dark scrim so the overlaid copy stays legible -->
+      <div
+        class="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest/85 via-forest/55 to-forest/75"
+        aria-hidden="true"
+      >
+      </div>
+
+      <!-- overlaid copy -->
+      <div class="reveal relative z-10 mx-auto max-w-3xl px-6 text-center text-parchment">
+        <p class="eyebrow eyebrow-rule justify-center text-sage mb-5">
           Drawn from the earth
         </p>
         <h1
-          class="font-serif-display leading-[0.95] text-5xl sm:text-6xl md:text-7xl mb-6 text-olive dark:text-parchment"
+          class="font-serif-display leading-[0.95] text-5xl sm:text-6xl md:text-7xl mb-6 text-parchment [text-shadow:0_2px_28px_rgba(15,18,12,0.6)]"
         >
           A perfume that<br /><em class="not-italic text-terracotta">remembers</em> the soil it grew from.
         </h1>
-        <p class="text-lg md:text-xl leading-relaxed max-w-md text-bark/80 dark:text-[#e9e4d8]/80 mb-8">
+        <p class="mx-auto text-lg md:text-xl leading-relaxed max-w-md text-parchment/85 mb-8 [text-shadow:0_1px_14px_rgba(15,18,12,0.55)]">
           Smara is an all-natural eau de parfum, handcrafted in small batches
           from organic botanicals. No synthetics, no shortcuts — only the raw,
           living scent of the wild.
         </p>
-        <div class="flex flex-wrap gap-4 items-center">
+        <div class="flex flex-wrap gap-4 items-center justify-center">
           <a
             href="#ritual"
-            class="focus-ring inline-block bg-olive dark:bg-sage text-parchment dark:text-forest px-7 py-3 rounded-full font-overpass-mono text-sm uppercase tracking-widest transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-10px_rgba(74,82,64,0.55)] dark:hover:shadow-[0_12px_28px_-10px_rgba(138,154,123,0.45)]"
+            class="focus-ring inline-block bg-parchment text-forest px-7 py-3 rounded-full font-overpass-mono text-sm uppercase tracking-widest transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-10px_rgba(0,0,0,0.55)]"
           >
             Discover the scent
           </a>
           <a
             href="#craft"
-            class="focus-ring inline-block border border-olive/40 dark:border-sage/40 px-7 py-3 rounded-full font-overpass-mono text-sm uppercase tracking-widest text-olive dark:text-sage transition-colors hover:bg-olive/5 dark:hover:bg-sage/10"
+            class="focus-ring inline-block border border-parchment/50 px-7 py-3 rounded-full font-overpass-mono text-sm uppercase tracking-widest text-parchment transition-colors hover:bg-parchment/10"
           >
             Our craft
           </a>
         </div>
       </div>
-      <div class="order-1 md:order-2 relative reveal">
-        <!-- soft colour halo peeking out from behind the frame -->
-        <div
-          class="absolute -inset-4 sm:-inset-6 rounded-[40%_60%_55%_45%/55%_45%_60%_40%] bg-gradient-to-br from-sage/30 via-sage/15 to-terracotta/15 dark:from-sage/20 dark:via-sage/10 dark:to-terracotta/10 blur-2xl"
-          aria-hidden="true"
-        >
-        </div>
-
-        <!-- product video, edges feathered softly into the page -->
-        <div class="float relative">
-          <video
-            class="block w-full h-[320px] sm:h-[420px] lg:h-[520px] object-cover object-center"
-            style="-webkit-mask-image: radial-gradient(ellipse 62% 64% at 50% 46%, #000 32%, rgba(0,0,0,0) 82%); mask-image: radial-gradient(ellipse 62% 64% at 50% 46%, #000 32%, rgba(0,0,0,0) 82%); filter: drop-shadow(0 20px 38px rgba(74,82,64,0.25));"
-            autoplay
-            loop
-            muted
-            playsinline
-            poster={heroPoster.src}
-            aria-label="The Smara perfume bottle resting on linen, hand-poured from organic botanicals"
-          >
-            <source src={heroVideo} type="video/mp4" />
-          </video>
-        </div>
-
-        <BotanicalSprig
-          class="pointer-events-none absolute -left-6 -top-8 h-44 w-auto text-sage-deep/30 dark:text-sage/25 -rotate-[18deg]"
-        />
-        <BotanicalSprig
-          class="pointer-events-none absolute -right-4 bottom-2 h-36 w-auto text-sage-deep/25 dark:text-sage/20 rotate-[200deg]"
-        />
-      </div>
 
       <!-- scroll cue -->
       <div
-        class="pointer-events-none absolute inset-x-0 -bottom-2 hidden md:flex flex-col items-center gap-2 text-sage-deep dark:text-sage"
+        class="pointer-events-none absolute inset-x-0 bottom-6 hidden md:flex flex-col items-center gap-2 text-parchment/80"
         aria-hidden="true"
       >
         <span class="eyebrow text-[0.6rem] opacity-70">Scroll</span>
