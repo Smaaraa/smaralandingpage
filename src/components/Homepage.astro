@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BotanicalSprig from "./BotanicalSprig.astro";
-import anim_test from "../images/anim_test.gif";
+import heroVideo from "../images/hero.mp4";
+import heroPoster from "../images/hero_still.webp";
 const { title } = Astro.props;
 
 const pillars = [
@@ -83,21 +83,34 @@ const steps = [
         </div>
       </div>
       <div class="order-1 md:order-2 relative reveal">
+        <!-- soft colour halo peeking out from behind the frame -->
         <div
-          class="absolute inset-0 -m-6 rounded-[40%_60%_55%_45%/55%_45%_60%_40%] bg-sage/20 dark:bg-sage/10 blur-2xl"
+          class="absolute -inset-4 sm:-inset-6 rounded-[40%_60%_55%_45%/55%_45%_60%_40%] bg-gradient-to-br from-sage/30 via-sage/15 to-terracotta/15 dark:from-sage/20 dark:via-sage/10 dark:to-terracotta/10 blur-2xl"
           aria-hidden="true"
         >
         </div>
+
+        <!-- product video, edges feathered softly into the page -->
+        <div class="float relative">
+          <video
+            class="block w-full h-[320px] sm:h-[420px] lg:h-[520px] object-cover object-center"
+            style="-webkit-mask-image: radial-gradient(ellipse 62% 64% at 50% 46%, #000 32%, rgba(0,0,0,0) 82%); mask-image: radial-gradient(ellipse 62% 64% at 50% 46%, #000 32%, rgba(0,0,0,0) 82%); filter: drop-shadow(0 20px 38px rgba(74,82,64,0.25));"
+            autoplay
+            loop
+            muted
+            playsinline
+            poster={heroPoster.src}
+            aria-label="The Smara perfume bottle resting on linen, hand-poured from organic botanicals"
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+        </div>
+
         <BotanicalSprig
-          class="pointer-events-none absolute -left-6 -top-8 h-44 w-auto text-sage-deep/20 dark:text-sage/20 -rotate-[18deg]"
+          class="pointer-events-none absolute -left-6 -top-8 h-44 w-auto text-sage-deep/30 dark:text-sage/25 -rotate-[18deg]"
         />
         <BotanicalSprig
-          class="pointer-events-none absolute -right-4 bottom-2 h-36 w-auto text-sage-deep/15 dark:text-sage/15 rotate-[200deg]"
-        />
-        <Image
-          class="float relative w-full sm:h-[350px] lg:h-[600px] object-contain object-center"
-          src={anim_test}
-          alt="The Smara perfume bottle, hand-poured from organic botanicals"
+          class="pointer-events-none absolute -right-4 bottom-2 h-36 w-auto text-sage-deep/25 dark:text-sage/20 rotate-[200deg]"
         />
       </div>
 
