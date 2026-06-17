@@ -168,6 +168,19 @@ h1 {
   transform: none;
 }
 
+/* full-viewport sections that snap into place while scrolling */
+.section-screen {
+  min-height: 100vh;
+  min-height: 100svh;
+  scroll-snap-align: start;
+}
+@media (min-width: 800px) and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 4.5rem;
+  }
+}
+
 /* gentle, continuous float for the hero product */
 @keyframes drift {
   0%,
