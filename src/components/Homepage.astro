@@ -39,10 +39,26 @@ const notes = [
 ];
 
 const steps = [
-  { n: "01", title: "Harvest", body: "Flowers and roots gathered at dawn from organic, biodynamic growers." },
-  { n: "02", title: "Distill", body: "Slow steam-distilled in copper, the old way, to keep the scent alive." },
-  { n: "03", title: "Blend", body: "Layered by the nose alone — no formula software, only patience." },
-  { n: "04", title: "Rest", body: "Aged six weeks in darkness before it ever meets your skin." },
+  {
+    n: "01",
+    title: "Harvest",
+    body: "Flowers and roots gathered at dawn from organic, biodynamic growers.",
+  },
+  {
+    n: "02",
+    title: "Distill",
+    body: "Slow steam-distilled in copper, the old way, to keep the scent alive.",
+  },
+  {
+    n: "03",
+    title: "Blend",
+    body: "Layered by the nose alone — no formula software, only patience.",
+  },
+  {
+    n: "04",
+    title: "Rest",
+    body: "Aged six weeks in darkness before it ever meets your skin.",
+  },
 ];
 ---
 
@@ -55,7 +71,7 @@ const steps = [
     >
       <!-- full-bleed video, edges feathered softly into the page -->
       <video
-        class="absolute inset-0 h-full w-full object-cover object-center"
+        class="absolute inset-0 h-full w-full object-cover object-[center_54%]"
         style="-webkit-mask-image: radial-gradient(ellipse 82% 88% at 50% 50%, #000 50%, rgba(0,0,0,0) 100%); mask-image: radial-gradient(ellipse 82% 88% at 50% 50%, #000 50%, rgba(0,0,0,0) 100%);"
         autoplay
         loop
@@ -75,16 +91,22 @@ const steps = [
       </div>
 
       <!-- overlaid copy -->
-      <div class="reveal relative z-10 mx-auto max-w-3xl px-6 text-center text-parchment">
+      <div
+        class="reveal relative z-10 mx-auto max-w-3xl px-6 text-center text-parchment"
+      >
         <p class="eyebrow eyebrow-rule justify-center text-sage mb-5">
           Drawn from the earth
         </p>
         <h1
           class="font-serif-display leading-[0.95] text-5xl sm:text-6xl md:text-7xl mb-6 text-parchment [text-shadow:0_2px_28px_rgba(15,18,12,0.6)]"
         >
-          A perfume that<br /><em class="not-italic text-terracotta">remembers</em> the soil it grew from.
+          A perfume that<br /><em class="not-italic text-terracotta"
+            >remembers</em
+          > the soil it grew from.
         </h1>
-        <p class="mx-auto text-lg md:text-xl leading-relaxed max-w-md text-parchment/85 mb-8 [text-shadow:0_1px_14px_rgba(15,18,12,0.55)]">
+        <p
+          class="mx-auto text-lg md:text-xl leading-relaxed max-w-md text-parchment/85 mb-8 [text-shadow:0_1px_14px_rgba(15,18,12,0.55)]"
+        >
           Smara is an all-natural eau de parfum, handcrafted in small batches
           from organic botanicals. No synthetics, no shortcuts — only the raw,
           living scent of the wild.
@@ -111,16 +133,22 @@ const steps = [
         aria-hidden="true"
       >
         <span class="eyebrow text-[0.6rem] opacity-70">Scroll</span>
-        <span class="scroll-cue-track"><span class="scroll-cue-dot"></span></span>
+        <span class="scroll-cue-track"
+          ><span class="scroll-cue-dot"></span></span
+        >
       </div>
     </section>
 
     <!-- Philosophy -->
-    <section class="section-screen flex flex-col justify-center relative isolate overflow-hidden my-6 px-6 md:px-12 py-14 md:py-20 rounded-3xl bg-cream/50 dark:bg-bark/30">
+    <section
+      class="section-screen flex flex-col justify-center relative isolate overflow-hidden my-6 px-6 md:px-12 py-14 md:py-20 rounded-3xl bg-cream/50 dark:bg-bark/30"
+    >
       <BotanicalSprig
         class="pointer-events-none absolute -z-10 -right-10 -top-12 h-64 w-auto text-sage-deep/[7%] dark:text-sage/[7%] rotate-[24deg]"
       />
-      <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-4 reveal">Our philosophy</p>
+      <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-4 reveal">
+        Our philosophy
+      </p>
       <h2
         class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment reveal"
       >
@@ -150,16 +178,23 @@ const steps = [
       id="ingredients"
       class="section-screen flex flex-col justify-center py-14 md:py-20 border-t border-bark/10 dark:border-sage/15"
     >
-      <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-4 reveal">The botanicals</p>
+      <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-4 reveal">
+        The botanicals
+      </p>
       <h2
         class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment reveal"
       >
         Twelve raw ingredients. Nothing hidden.
       </h2>
-      <div class="grid gap-px bg-bark/10 dark:bg-sage/15 md:grid-cols-3 rounded-2xl overflow-hidden">
+      <div
+        class="grid gap-px bg-bark/10 dark:bg-sage/15 md:grid-cols-3 rounded-2xl overflow-hidden"
+      >
         {
           notes.map((n, i) => (
-            <div class="bg-parchment dark:bg-forest p-8 reveal" style={`--reveal-delay: ${i * 120}ms`}>
+            <div
+              class="bg-parchment dark:bg-forest p-8 reveal"
+              style={`--reveal-delay: ${i * 120}ms`}
+            >
               <div class="flex items-baseline justify-between mb-5">
                 <span class="font-serif-display text-2xl text-olive dark:text-sage">
                   {n.stage}
@@ -189,7 +224,9 @@ const steps = [
       <BotanicalSprig
         class="pointer-events-none absolute -z-10 -left-12 -bottom-16 h-72 w-auto text-sage-deep/[7%] dark:text-sage/[7%] -rotate-[200deg]"
       />
-      <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-4 reveal">From flower to flacon</p>
+      <p class="eyebrow eyebrow-rule text-sage-deep dark:text-sage mb-4 reveal">
+        From flower to flacon
+      </p>
       <h2
         class="font-serif-display text-3xl md:text-5xl max-w-2xl mb-12 text-olive dark:text-parchment reveal"
       >
@@ -228,15 +265,21 @@ const steps = [
       <BotanicalSprig
         class="pointer-events-none absolute -z-10 -right-8 -bottom-12 h-56 w-auto text-parchment/[6%] -rotate-[200deg]"
       />
-      <p class="eyebrow eyebrow-rule text-sage mb-4 justify-center">Join the harvest</p>
-      <h2 class="font-serif-display text-3xl md:text-5xl max-w-2xl mx-auto mb-5">
+      <p class="eyebrow eyebrow-rule text-sage mb-4 justify-center">
+        Join the harvest
+      </p>
+      <h2
+        class="font-serif-display text-3xl md:text-5xl max-w-2xl mx-auto mb-5"
+      >
         Be first to know when the next batch is poured.
       </h2>
       <p class="max-w-md mx-auto text-parchment/80 mb-8 leading-relaxed">
         We make Smara only when the botanicals are at their finest. Leave your
         email and we'll write when a new harvest is ready.
       </p>
-      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto justify-center">
+      <form
+        class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto justify-center"
+      >
         <label class="sr-only" for="email">Email address</label>
         <input
           id="email"
